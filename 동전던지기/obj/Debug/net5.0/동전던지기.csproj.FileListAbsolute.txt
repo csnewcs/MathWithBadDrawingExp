@@ -1,0 +1,16 @@
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/동전던지기/bin/Debug/net5.0/동전던지기
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/동전던지기/bin/Debug/net5.0/동전던지기.deps.json
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/동전던지기/bin/Debug/net5.0/동전던지기.runtimeconfig.json
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/동전던지기/bin/Debug/net5.0/동전던지기.runtimeconfig.dev.json
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/동전던지기/bin/Debug/net5.0/동전던지기.dll
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/동전던지기/bin/Debug/net5.0/ref/동전던지기.dll
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/동전던지기/bin/Debug/net5.0/동전던지기.pdb
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/동전던지기/obj/Debug/net5.0/동전던지기.csprojAssemblyReference.cache
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/동전던지기/obj/Debug/net5.0/동전던지기.GeneratedMSBuildEditorConfig.editorconfig
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/동전던지기/obj/Debug/net5.0/동전던지기.AssemblyInfoInputs.cache
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/동전던지기/obj/Debug/net5.0/동전던지기.AssemblyInfo.cs
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/동전던지기/obj/Debug/net5.0/동전던지기.csproj.CoreCompileInputs.cache
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/동전던지기/obj/Debug/net5.0/동전던지기.dll
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/동전던지기/obj/Debug/net5.0/ref/동전던지기.dll
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/동전던지기/obj/Debug/net5.0/동전던지기.pdb
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/동전던지기/obj/Debug/net5.0/동전던지기.genruntimeconfig.cache
