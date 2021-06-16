@@ -37,18 +37,15 @@ namespace tiktakto
         {
             if(ate[pt.X, pt.Y] != Team._)
             {
+                Console.WriteLine("이미 둔 곳");
                 return false;
             }
             else
             {
                 ate[pt.X, pt.Y] = team;
-                Console.WriteLine($"{pt.X}, {pt.Y}를 {team}이 먹음");
+                // Console.WriteLine($"{pt.X}, {pt.Y}를 {team}이 먹음");
                 
                 check();
-                foreach(var a in ate)
-                {
-                    Console.WriteLine(a);
-                }
                 return true;
             }
         }
@@ -70,11 +67,11 @@ namespace tiktakto
                 xCorrect = true;
                 for(int j = 0; j < 3; j++)
                 {
-                    if(ate[i, j] != X)
+                    if(ate[i, j] == Team._ || ate[i, j] != X)
                     {
                         xCorrect = false;
                     }
-                    if(ate[j, i] != Y)
+                    if(ate[j, i] == Team._ || ate[j, i] != Y)
                     {
                         yCorrect = false;
                     }
@@ -92,7 +89,7 @@ namespace tiktakto
                     return;
                 }
             }
-            if((ate[0, 0] == ate[1, 1] && ate[1, 1] == ate[2, 2]) || (ate[0,2] == ate[1, 1] && ate[1, 1] == ate[2, 0]))
+            if((ate[0, 0] == ate[1, 1] && ate[1, 1] == ate[2, 2]) || (ate[0,2] == ate[1, 1] && ate[1, 1] == ate[2, 0]) && ate[1, 1] != Team._)
             {
                 eaten = true;
                 own = ate[1, 1];
@@ -145,9 +142,16 @@ namespace tiktakto
         {
             if(panPt != lastPut && lastPut != new Point(-1, -1) && !ate[lastPut.X, lastPut.Y].wasEaten)
             {
-                throw new Exception("잘못된 판 선택");
+                Console.WriteLine("판 설정 미스");
+                return false;
+            }
+            else if(ate[panPt.X, panPt.Y].wasEaten)
+            {
+                Console.WriteLine("이미 먹힌 판");
+                return false;
             }
             bool asdf = ate[panPt.X, panPt.Y].put(team, pt);
+            _lastPut = pt;
             if(ate[pt.X, pt.Y].wasEaten)
             {
                 _lastPut = new Point(-1, -1);
@@ -156,8 +160,8 @@ namespace tiktakto
         }
         public void print()
         {
-            string[] line = new string[19];
-            string width = "+-+-+-+-+-+-+-+-+-+";
+            string[] line = new string[23];
+            string width = "+-+-+-+ +-+-+-+ +-+-+-+";
             
             line[0] = width;
             Team[,] bigAte = new Team[9, 9];
@@ -175,24 +179,28 @@ namespace tiktakto
                     }
                 }
             }
-            line[1] = $"|{bigAte[0,0]}|{bigAte[0,1]}|{bigAte[0,2]}|{bigAte[0,3]}|{bigAte[0,4]}|{bigAte[0, 5]}|{bigAte[0, 6]}|{bigAte[0, 7]}|{bigAte[0, 8]}|";
+            line[1] = $"|{bigAte[0,0]}|{bigAte[0,1]}|{bigAte[0,2]}| |{bigAte[0,3]}|{bigAte[0,4]}|{bigAte[0, 5]}| |{bigAte[0, 6]}|{bigAte[0, 7]}|{bigAte[0, 8]}|";
             line[2] = width;
-            line[3] = $"|{bigAte[1,0]}|{bigAte[1,1]}|{bigAte[1,2]}|{bigAte[1,3]}|{bigAte[1,4]}|{bigAte[1, 5]}|{bigAte[1, 6]}|{bigAte[1, 7]}|{bigAte[1, 8]}|";
+            line[3] = $"|{bigAte[1,0]}|{bigAte[1,1]}|{bigAte[1,2]}| |{bigAte[1,3]}|{bigAte[1,4]}|{bigAte[1, 5]}| |{bigAte[1, 6]}|{bigAte[1, 7]}|{bigAte[1, 8]}|";
             line[4] = width;
-            line[5] = $"|{bigAte[2,0]}|{bigAte[2,1]}|{bigAte[2,2]}|{bigAte[2,3]}|{bigAte[2,4]}|{bigAte[2, 5]}|{bigAte[2, 6]}|{bigAte[2, 7]}|{bigAte[2, 8]}|";
+            line[5] = $"|{bigAte[2,0]}|{bigAte[2,1]}|{bigAte[2,2]}| |{bigAte[2,3]}|{bigAte[2,4]}|{bigAte[2, 5]}| |{bigAte[2, 6]}|{bigAte[2, 7]}|{bigAte[2, 8]}|";
             line[6] = width;
-            line[7] = $"|{bigAte[3,0]}|{bigAte[3,1]}|{bigAte[3,2]}|{bigAte[3,3]}|{bigAte[3,4]}|{bigAte[3, 5]}|{bigAte[3, 6]}|{bigAte[3, 7]}|{bigAte[3, 8]}|";
+            line[7] = "";
             line[8] = width;
-            line[9] = $"|{bigAte[4,0]}|{bigAte[4,1]}|{bigAte[4,2]}|{bigAte[4,3]}|{bigAte[4,4]}|{bigAte[4, 5]}|{bigAte[4, 6]}|{bigAte[4, 7]}|{bigAte[4, 8]}|";
+            line[9] = $"|{bigAte[3,0]}|{bigAte[3,1]}|{bigAte[3,2]}| |{bigAte[3,3]}|{bigAte[3,4]}|{bigAte[3, 5]}| |{bigAte[3, 6]}|{bigAte[3, 7]}|{bigAte[3, 8]}|";
             line[10] = width;
-            line[11] = $"|{bigAte[5,0]}|{bigAte[5,1]}|{bigAte[5,2]}|{bigAte[5,3]}|{bigAte[5,4]}|{bigAte[5, 5]}|{bigAte[5, 6]}|{bigAte[5, 7]}|{bigAte[5, 8]}|";
+            line[11] = $"|{bigAte[4,0]}|{bigAte[4,1]}|{bigAte[4,2]}| |{bigAte[4,3]}|{bigAte[4,4]}|{bigAte[4, 5]}| |{bigAte[4, 6]}|{bigAte[4, 7]}|{bigAte[4, 8]}|";
             line[12] = width;
-            line[13] = $"|{bigAte[6,0]}|{bigAte[6,1]}|{bigAte[6,2]}|{bigAte[6,3]}|{bigAte[6,4]}|{bigAte[6, 5]}|{bigAte[6, 6]}|{bigAte[6, 7]}|{bigAte[6, 8]}|";
+            line[13] = $"|{bigAte[5,0]}|{bigAte[5,1]}|{bigAte[5,2]}| |{bigAte[5,3]}|{bigAte[5,4]}|{bigAte[5, 5]}| |{bigAte[5, 6]}|{bigAte[5, 7]}|{bigAte[5, 8]}|";
             line[14] = width;
-            line[15] = $"|{bigAte[7,0]}|{bigAte[7,1]}|{bigAte[7,2]}|{bigAte[7,3]}|{bigAte[7,4]}|{bigAte[7, 5]}|{bigAte[7, 6]}|{bigAte[7, 7]}|{bigAte[7, 8]}|";
+            line[15] = "";
             line[16] = width;
-            line[17] = $"|{bigAte[8,0]}|{bigAte[8,1]}|{bigAte[8,2]}|{bigAte[8,3]}|{bigAte[8,4]}|{bigAte[8, 5]}|{bigAte[8, 6]}|{bigAte[8, 7]}|{bigAte[8, 8]}|";
+            line[17] = $"|{bigAte[6,0]}|{bigAte[6,1]}|{bigAte[6,2]}| |{bigAte[6,3]}|{bigAte[6,4]}|{bigAte[6, 5]}| |{bigAte[6, 6]}|{bigAte[6, 7]}|{bigAte[6, 8]}|";
             line[18] = width;
+            line[19] = $"|{bigAte[7,0]}|{bigAte[7,1]}|{bigAte[7,2]}| |{bigAte[7,3]}|{bigAte[7,4]}|{bigAte[7, 5]}| |{bigAte[7, 6]}|{bigAte[7, 7]}|{bigAte[7, 8]}|";
+            line[20] = width;
+            line[21] = $"|{bigAte[8,0]}|{bigAte[8,1]}|{bigAte[8,2]}| |{bigAte[8,3]}|{bigAte[8,4]}|{bigAte[8, 5]}| |{bigAte[8, 6]}|{bigAte[8, 7]}|{bigAte[8, 8]}|";
+            line[22] = width;
             foreach(string l in line)
             {
                 Console.WriteLine(l);
@@ -246,13 +254,16 @@ namespace tiktakto
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("게임을 시작합니다. 이 게임은 이상한 수학책에 나오는 궁극의 틱택토를 프로그램으로 만든 것입니다. 규칙은 해당 책의 그 부분을 봐주세요. 처음 시작 팀은 O입니다.\n좌표는 X는 왼쪽에서 오른쪽으로 갈 수록 커지고 Y는 위에서 아래로 갈 수록 커집니다.");
             BigPan pan = new BigPan();
+            Team turn = Team.O;
             while(!pan.done)
             {
+                Console.WriteLine($"{turn} 차례입니다.");
                 Point panPoint = pan.lastPut;
-                Team turn = Team.O;
                 if(panPoint == new Point(-1, -1))
                 {
+                    // Console.WriteLine("이 판은 먹혔습니다. 새로운 판을 선택합니다.");
                     while(true)
                     {
                         Console.WriteLine("둘 판의 X좌표를 입력하세요(1~3)");
@@ -274,6 +285,7 @@ namespace tiktakto
                     }
 
                 }
+                Console.WriteLine($"둘 판의 좌표: ({panPoint.X+1}, {panPoint.Y+1})");
                 Point pt = new Point();
                 while(true)
                 {
