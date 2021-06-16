@@ -67,11 +67,11 @@ namespace tiktakto
                 xCorrect = true;
                 for(int j = 0; j < 3; j++)
                 {
-                    if(ate[i, j] == Team._ || ate[i, j] != X)
+                    if(ate[j, i] == Team._ || ate[j, i] != X)
                     {
                         xCorrect = false;
                     }
-                    if(ate[j, i] == Team._ || ate[j, i] != Y)
+                    if(ate[i, j] == Team._ || ate[i, j] != Y)
                     {
                         yCorrect = false;
                     }
@@ -156,6 +156,7 @@ namespace tiktakto
             {
                 _lastPut = new Point(-1, -1);
             }
+            check();
             return asdf;
         }
         public void print()
@@ -179,27 +180,27 @@ namespace tiktakto
                     }
                 }
             }
-            line[1] = $"|{bigAte[0,0]}|{bigAte[0,1]}|{bigAte[0,2]}| |{bigAte[0,3]}|{bigAte[0,4]}|{bigAte[0, 5]}| |{bigAte[0, 6]}|{bigAte[0, 7]}|{bigAte[0, 8]}|";
+            line[1] = $"|{bigAte[0,0]}|{bigAte[1,0]}|{bigAte[2,0]}| |{bigAte[3,0]}|{bigAte[4,0]}|{bigAte[5, 0]}| |{bigAte[6, 0]}|{bigAte[7, 0]}|{bigAte[8, 0]}|";
             line[2] = width;
-            line[3] = $"|{bigAte[1,0]}|{bigAte[1,1]}|{bigAte[1,2]}| |{bigAte[1,3]}|{bigAte[1,4]}|{bigAte[1, 5]}| |{bigAte[1, 6]}|{bigAte[1, 7]}|{bigAte[1, 8]}|";
+            line[3] = $"|{bigAte[0,1]}|{bigAte[1,1]}|{bigAte[2,1]}| |{bigAte[3,1]}|{bigAte[4,1]}|{bigAte[5, 1]}| |{bigAte[6, 1]}|{bigAte[7, 1]}|{bigAte[8, 1]}|";
             line[4] = width;
-            line[5] = $"|{bigAte[2,0]}|{bigAte[2,1]}|{bigAte[2,2]}| |{bigAte[2,3]}|{bigAte[2,4]}|{bigAte[2, 5]}| |{bigAte[2, 6]}|{bigAte[2, 7]}|{bigAte[2, 8]}|";
+            line[5] = $"|{bigAte[0,2]}|{bigAte[1,2]}|{bigAte[2,2]}| |{bigAte[3,2]}|{bigAte[4,2]}|{bigAte[5, 2]}| |{bigAte[6, 2]}|{bigAte[7, 2]}|{bigAte[8, 2]}|";
             line[6] = width;
             line[7] = "";
             line[8] = width;
-            line[9] = $"|{bigAte[3,0]}|{bigAte[3,1]}|{bigAte[3,2]}| |{bigAte[3,3]}|{bigAte[3,4]}|{bigAte[3, 5]}| |{bigAte[3, 6]}|{bigAte[3, 7]}|{bigAte[3, 8]}|";
+            line[9] = $"|{bigAte[0,3]}|{bigAte[1,3]}|{bigAte[2,3]}| |{bigAte[3,3]}|{bigAte[4,3]}|{bigAte[5, 3]}| |{bigAte[6, 3]}|{bigAte[7, 3]}|{bigAte[8, 3]}|";
             line[10] = width;
-            line[11] = $"|{bigAte[4,0]}|{bigAte[4,1]}|{bigAte[4,2]}| |{bigAte[4,3]}|{bigAte[4,4]}|{bigAte[4, 5]}| |{bigAte[4, 6]}|{bigAte[4, 7]}|{bigAte[4, 8]}|";
+            line[11] = $"|{bigAte[0,4]}|{bigAte[1,4]}|{bigAte[2,4]}| |{bigAte[3,4]}|{bigAte[4,4]}|{bigAte[5, 4]}| |{bigAte[6, 4]}|{bigAte[7, 4]}|{bigAte[8, 4]}|";
             line[12] = width;
-            line[13] = $"|{bigAte[5,0]}|{bigAte[5,1]}|{bigAte[5,2]}| |{bigAte[5,3]}|{bigAte[5,4]}|{bigAte[5, 5]}| |{bigAte[5, 6]}|{bigAte[5, 7]}|{bigAte[5, 8]}|";
+            line[13] = $"|{bigAte[0,5]}|{bigAte[1,5]}|{bigAte[2,5]}| |{bigAte[3,5]}|{bigAte[4,5]}|{bigAte[5, 5]}| |{bigAte[6, 5]}|{bigAte[7, 5]}|{bigAte[8, 5]}|";
             line[14] = width;
             line[15] = "";
             line[16] = width;
-            line[17] = $"|{bigAte[6,0]}|{bigAte[6,1]}|{bigAte[6,2]}| |{bigAte[6,3]}|{bigAte[6,4]}|{bigAte[6, 5]}| |{bigAte[6, 6]}|{bigAte[6, 7]}|{bigAte[6, 8]}|";
+            line[17] = $"|{bigAte[0,6]}|{bigAte[1,6]}|{bigAte[2,6]}| |{bigAte[3,6]}|{bigAte[4,6]}|{bigAte[5, 6]}| |{bigAte[6, 6]}|{bigAte[7, 6]}|{bigAte[8, 6]}|";
             line[18] = width;
-            line[19] = $"|{bigAte[7,0]}|{bigAte[7,1]}|{bigAte[7,2]}| |{bigAte[7,3]}|{bigAte[7,4]}|{bigAte[7, 5]}| |{bigAte[7, 6]}|{bigAte[7, 7]}|{bigAte[7, 8]}|";
+            line[19] = $"|{bigAte[0,7]}|{bigAte[1,7]}|{bigAte[2,7]}| |{bigAte[3,7]}|{bigAte[4,7]}|{bigAte[5, 7]}| |{bigAte[6, 7]}|{bigAte[7, 7]}|{bigAte[8, 7]}|";
             line[20] = width;
-            line[21] = $"|{bigAte[8,0]}|{bigAte[8,1]}|{bigAte[8,2]}| |{bigAte[8,3]}|{bigAte[8,4]}|{bigAte[8, 5]}| |{bigAte[8, 6]}|{bigAte[8, 7]}|{bigAte[8, 8]}|";
+            line[21] = $"|{bigAte[0,8]}|{bigAte[1,8]}|{bigAte[2,8]}| |{bigAte[3,8]}|{bigAte[4,8]}|{bigAte[5, 8]}| |{bigAte[6, 8]}|{bigAte[7, 8]}|{bigAte[8, 8]}|";
             line[22] = width;
             foreach(string l in line)
             {
@@ -217,14 +218,15 @@ namespace tiktakto
             {
                 X = ate[i, 0].ateTeam;
                 Y = ate[0, i].ateTeam;
+                Console.WriteLine($"{X}, {Y}");
                 xCorrect = true;
                 for(int j = 0; j < 3; j++)
                 {
-                    if(ate[i, j].ateTeam != X)
+                    if(ate[j, i].ateTeam != X)
                     {
                         xCorrect = false;
                     }
-                    if(ate[j, i].ateTeam != Y)
+                    if(ate[i, j].ateTeam != Y)
                     {
                         yCorrect = false;
                     }
