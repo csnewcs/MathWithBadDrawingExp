@@ -42,7 +42,13 @@ namespace tiktakto
             else
             {
                 ate[pt.X, pt.Y] = team;
+                Console.WriteLine($"{pt.X}, {pt.Y}를 {team}이 먹음");
+                
                 check();
+                foreach(var a in ate)
+                {
+                    Console.WriteLine(a);
+                }
                 return true;
             }
         }
@@ -91,6 +97,19 @@ namespace tiktakto
                 eaten = true;
                 own = ate[1, 1];
             }
+            bool all = true;
+            foreach(var a in ate)
+            {
+                if(a != Team._)
+                {
+                    all = false;
+                    continue;
+                }
+            }
+            if(all)
+            {
+                eaten = true;
+            }
         }
     }
     class BigPan
@@ -101,8 +120,19 @@ namespace tiktakto
             get {return _lastPut;}
         }
         MiniPan[,] ate;
-        Team win;
-        bool done = false;
+        Team _win;
+        public Team win {
+            get {
+                return _win;
+            }
+        }
+        bool _done = false;
+        public bool done
+        {
+            get {
+                return _done;
+            }
+        }
         public BigPan()
         {
             ate = new MiniPan[3, 3] {
@@ -113,12 +143,16 @@ namespace tiktakto
         }
         public bool put(Team team, Point pt, Point panPt)
         {
-            if(panPt != lastPut && !ate[lastPut.X, lastPut.Y].wasEaten)
+            if(panPt != lastPut && lastPut != new Point(-1, -1) && !ate[lastPut.X, lastPut.Y].wasEaten)
             {
                 throw new Exception("잘못된 판 선택");
             }
-            _lastPut = pt;
-            return ate[panPt.X, panPt.Y].put(team, pt);
+            bool asdf = ate[panPt.X, panPt.Y].put(team, pt);
+            if(ate[pt.X, pt.Y].wasEaten)
+            {
+                _lastPut = new Point(-1, -1);
+            }
+            return asdf;
         }
         public void print()
         {
@@ -132,9 +166,9 @@ namespace tiktakto
                 for(int j = 0; j < 3; j++) //큰 판에서 작은 판 Y좌표
                 {
                     Team[,] miniAte = ate[i,j].getAte;
-                    for(int k = 0; k < 0; k++) //작은 판에서 팀 X좌표
+                    for(int k = 0; k < 3; k++) //작은 판에서 팀 X좌표
                     {
-                        for(int l = 0; l < 0; l++) //작은 판에서 팀 Y좌표
+                        for(int l = 0; l < 3; l++) //작은 판에서 팀 Y좌표
                         {
                             bigAte[i * 3 + k, j * 3 + l] = miniAte[k, l];
                         }
@@ -167,8 +201,8 @@ namespace tiktakto
         private void check()
         {
             //가로줄, 세로줄 체크
-            Team X = ate[0, 0];
-            Team Y = ate[0, 0];
+            Team X = ate[0, 0].ateTeam;
+            Team Y = ate[0, 0].ateTeam;
             bool xCorrect = true;
             bool yCorrect = true;
             for(int i = 0; i < 3; i++)
@@ -189,32 +223,94 @@ namespace tiktakto
                 }
                 if(xCorrect)
                 {
-                    win = X;
-                    done = true;
+                    _win = X;
+                    _done = true;
                     return;
                 }
                 if(yCorrect)
                 {
-                    win = Y;
-                    done = true;
+                    _win = Y;
+                    _done = true;
                     return;
                 }
             }
             if((ate[0, 0] == ate[1, 1] && ate[1, 1] == ate[2, 2]) || (ate[0,2] == ate[1, 1] && ate[1, 1] == ate[2, 0]))
             {
-                done = true;
-                win = ate[1, 1].ateTeam;
+                _done = true;
+                _win = ate[1, 1].ateTeam;
             }
         }
     }
     
     class Program
     {
-        
         static void Main(string[] args)
         {
             BigPan pan = new BigPan();
-            pan.print();
+            while(!pan.done)
+            {
+                Point panPoint = pan.lastPut;
+                Team turn = Team.O;
+                if(panPoint == new Point(-1, -1))
+                {
+                    while(true)
+                    {
+                        Console.WriteLine("둘 판의 X좌표를 입력하세요(1~3)");
+                        int x = -1;
+                        if (!int.TryParse(Console.ReadLine(), out x) || x < 1 || x > 3) {
+                            Console.WriteLine("잘못된 값을 입력했습니다. 다시 해 주세요.");
+                            continue;
+                        }
+                        x--;
+                        int y = -1;
+                        Console.WriteLine("둘 판의 Y좌표를 입력하세요(1~3)");
+                        if (!int.TryParse(Console.ReadLine(), out y) || y < 1 || y > 3) {
+                            Console.WriteLine("잘못된 값을 입력했습니다. 다시 해 주세요.");
+                            continue;
+                        }
+                        y--;
+                        panPoint = new Point(x, y);
+                        break;
+                    }
+
+                }
+                Point pt = new Point();
+                while(true)
+                {
+                    Console.WriteLine("둘 곳의 X좌표를 입력하세요(1~3)");
+                    int x = -1;
+                    if(!int.TryParse(Console.ReadLine(), out x) || x < 1 || x > 3) {
+                        Console.WriteLine("잘못된 값을 입력했습니다. 다시 해 주세요.");
+                        continue;
+                    }
+                    x--;
+                    Console.WriteLine("둘 곳의 Y좌표를 입력하세요(1~3)");
+                    int y = -1;
+                    if(!int.TryParse(Console.ReadLine(), out y) || y < 1 || y > 3)
+                    {
+                        Console.WriteLine("잘못된 값을 입력했습니다. 다시 해 주세요.");
+                        continue;
+                    }
+                    y--;
+                    pt = new Point(x, y);
+                    break;
+                }
+                if(!pan.put(turn, pt, panPoint))
+                {
+                    Console.WriteLine("잘못된 곳을 선택하였습니다. 다시 해 주세요.");
+                    continue;
+                }
+                pan.print();
+                if(pan.done)
+                {
+                    Console.WriteLine($"게임이 종료되었습니다. '{pan.win}'가 이겼습니다");
+                    break;
+                }
+                if(turn == Team.O) turn = Team.X;
+                else turn = Team.O;
+            }
+            Console.WriteLine("종료하려면 아무 키나 누르세요");
+            Console.ReadKey();
         }
     }
 }
