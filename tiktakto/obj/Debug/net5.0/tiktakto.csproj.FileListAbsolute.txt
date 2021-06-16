@@ -1,0 +1,16 @@
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tiktakto/bin/Debug/net5.0/tiktakto
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tiktakto/bin/Debug/net5.0/tiktakto.deps.json
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tiktakto/bin/Debug/net5.0/tiktakto.runtimeconfig.json
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tiktakto/bin/Debug/net5.0/tiktakto.runtimeconfig.dev.json
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tiktakto/bin/Debug/net5.0/tiktakto.dll
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tiktakto/bin/Debug/net5.0/ref/tiktakto.dll
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tiktakto/bin/Debug/net5.0/tiktakto.pdb
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tiktakto/obj/Debug/net5.0/tiktakto.csprojAssemblyReference.cache
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tiktakto/obj/Debug/net5.0/tiktakto.GeneratedMSBuildEditorConfig.editorconfig
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tiktakto/obj/Debug/net5.0/tiktakto.AssemblyInfoInputs.cache
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tiktakto/obj/Debug/net5.0/tiktakto.AssemblyInfo.cs
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tiktakto/obj/Debug/net5.0/tiktakto.csproj.CoreCompileInputs.cache
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tiktakto/obj/Debug/net5.0/tiktakto.dll
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tiktakto/obj/Debug/net5.0/ref/tiktakto.dll
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tiktakto/obj/Debug/net5.0/tiktakto.pdb
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tiktakto/obj/Debug/net5.0/tiktakto.genruntimeconfig.cache
