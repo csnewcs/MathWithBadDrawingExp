@@ -62,9 +62,10 @@ namespace tiktakto
             bool yCorrect = true;
             for(int i = 0; i < 3; i++)
             {
-                X = ate[i, 0];
-                Y = ate[0, i];
+                X = ate[0, i];
+                Y = ate[i, 0];
                 xCorrect = true;
+                yCorrect = true;
                 for(int j = 0; j < 3; j++)
                 {
                     if(ate[j, i] == Team._ || ate[j, i] != X)
@@ -78,21 +79,26 @@ namespace tiktakto
                 }
                 if(xCorrect)
                 {
+                    Console.WriteLine("X일치");
                     own = X;
                     eaten = true;
                     return;
                 }
                 if(yCorrect)
                 {
+                    Console.WriteLine("Y일치");
                     own = Y;
                     eaten = true;
                     return;
                 }
             }
-            if((ate[0, 0] == ate[1, 1] && ate[1, 1] == ate[2, 2]) || (ate[0,2] == ate[1, 1] && ate[1, 1] == ate[2, 0]) && ate[1, 1] != Team._)
+            if((ate[0, 0] == ate[1, 1] && ate[1, 1] == ate[2, 2]) || (ate[0,2] == ate[1, 1] && ate[1, 1] == ate[2, 0]))
             {
-                eaten = true;
-                own = ate[1, 1];
+                if(ate[1, 1] != Team._)
+                {
+                    own = ate[1, 1];
+                    eaten = true;
+                }
             }
             bool all = true;
             foreach(var a in ate)
@@ -154,6 +160,7 @@ namespace tiktakto
             _lastPut = pt;
             if(ate[pt.X, pt.Y].wasEaten)
             {
+                Console.WriteLine($"이 판은 {ate[pt.X, pt.Y].ateTeam}이 먹음");
                 _lastPut = new Point(-1, -1);
             }
             check();
@@ -216,17 +223,16 @@ namespace tiktakto
             bool yCorrect = true;
             for(int i = 0; i < 3; i++)
             {
-                X = ate[i, 0].ateTeam;
-                Y = ate[0, i].ateTeam;
-                Console.WriteLine($"{X}, {Y}");
+                X = ate[0, i].ateTeam;
+                Y = ate[i, 0].ateTeam;
                 xCorrect = true;
                 for(int j = 0; j < 3; j++)
                 {
-                    if(ate[j, i].ateTeam != X)
+                    if(ate[j, i].ateTeam != X || ate[j, i].ateTeam == Team._)
                     {
                         xCorrect = false;
                     }
-                    if(ate[i, j].ateTeam != Y)
+                    if(ate[i, j].ateTeam != Y || ate[i, j].ateTeam == Team._)
                     {
                         yCorrect = false;
                     }
@@ -237,18 +243,29 @@ namespace tiktakto
                     _done = true;
                     return;
                 }
-                if(yCorrect)
+                else if(yCorrect)
                 {
                     _win = Y;
                     _done = true;
                     return;
                 }
+                
             }
-            if((ate[0, 0] == ate[1, 1] && ate[1, 1] == ate[2, 2]) || (ate[0,2] == ate[1, 1] && ate[1, 1] == ate[2, 0]))
+            if(((ate[0, 0] == ate[1, 1] && ate[1, 1] == ate[2, 2]) || (ate[0,2] == ate[1, 1] && ate[1, 1] == ate[2, 0])) && ate[1, 1].ateTeam != Team._)
             {
                 _done = true;
                 _win = ate[1, 1].ateTeam;
+                return;
             }
+            bool all = true;
+            foreach(var pan in ate)
+            {
+                if(!pan.wasEaten)
+                {
+                    all = false;
+                }
+            }
+            if(all) _done = true;
         }
     }
     
@@ -317,7 +334,10 @@ namespace tiktakto
                 pan.print();
                 if(pan.done)
                 {
-                    Console.WriteLine($"게임이 종료되었습니다. '{pan.win}'가 이겼습니다");
+                    string winTeamExist = $"승리한 것은 '{pan.win}'";
+                    string tie = "무승부";
+                    string result = pan.win == Team._ ? tie : winTeamExist;
+                    Console.WriteLine($"게임이 종료되었습니다. {result}입니다.");
                     break;
                 }
                 if(turn == Team.O) turn = Team.X;
