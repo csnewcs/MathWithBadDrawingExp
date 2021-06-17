@@ -37,7 +37,6 @@ namespace tictactoe
         {
             if(ate[pt.X, pt.Y] != Team._)
             {
-                Console.WriteLine("이미 둔 곳");
                 return false;
             }
             else
@@ -79,14 +78,12 @@ namespace tictactoe
                 }
                 if(xCorrect)
                 {
-                    Console.WriteLine("X일치");
                     own = X;
                     eaten = true;
                     return;
                 }
                 if(yCorrect)
                 {
-                    Console.WriteLine("Y일치");
                     own = Y;
                     eaten = true;
                     return;
@@ -160,7 +157,6 @@ namespace tictactoe
             _lastPut = pt;
             if(ate[pt.X, pt.Y].wasEaten)
             {
-                Console.WriteLine($"이 판은 {ate[pt.X, pt.Y].ateTeam}이 먹음");
                 _lastPut = new Point(-1, -1);
             }
             check();
@@ -226,6 +222,7 @@ namespace tictactoe
                 X = ate[0, i].ateTeam;
                 Y = ate[i, 0].ateTeam;
                 xCorrect = true;
+                yCorrect = true;
                 for(int j = 0; j < 3; j++)
                 {
                     if(ate[j, i].ateTeam != X || ate[j, i].ateTeam == Team._)
@@ -251,7 +248,7 @@ namespace tictactoe
                 }
                 
             }
-            if(((ate[0, 0] == ate[1, 1] && ate[1, 1] == ate[2, 2]) || (ate[0,2] == ate[1, 1] && ate[1, 1] == ate[2, 0])) && ate[1, 1].ateTeam != Team._)
+            if(((ate[0, 0].ateTeam == ate[1, 1].ateTeam && ate[1, 1].ateTeam == ate[2, 2].ateTeam) || (ate[0,2].ateTeam == ate[1, 1].ateTeam && ate[1, 1].ateTeam == ate[2, 0].ateTeam)) && ate[1, 1].ateTeam != Team._)
             {
                 _done = true;
                 _win = ate[1, 1].ateTeam;
