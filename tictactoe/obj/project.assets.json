@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tiktakto/tiktakto.csproj",
-      "projectName": "tiktakto",
-      "projectPath": "/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tiktakto/tiktakto.csproj",
+      "projectUniqueName": "/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tictactoe/tictactoe.csproj",
+      "projectName": "tictactoe",
+      "projectPath": "/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tictactoe/tictactoe.csproj",
       "packagesPath": "/home/csnewcs/.nuget/packages/",
-      "outputPath": "/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tiktakto/obj/",
+      "outputPath": "/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tictactoe/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/csnewcs/.nuget/NuGet/NuGet.Config"

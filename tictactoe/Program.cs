@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace tiktakto
+namespace tictactoe
 {
     enum Team
     {

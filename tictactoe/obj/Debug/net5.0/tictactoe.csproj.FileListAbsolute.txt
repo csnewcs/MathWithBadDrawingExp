@@ -1,0 +1,16 @@
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tictactoe/bin/Debug/net5.0/tictactoe
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tictactoe/bin/Debug/net5.0/tictactoe.deps.json
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tictactoe/bin/Debug/net5.0/tictactoe.runtimeconfig.json
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tictactoe/bin/Debug/net5.0/tictactoe.runtimeconfig.dev.json
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tictactoe/bin/Debug/net5.0/tictactoe.dll
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tictactoe/bin/Debug/net5.0/ref/tictactoe.dll
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tictactoe/bin/Debug/net5.0/tictactoe.pdb
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tictactoe/obj/Debug/net5.0/tictactoe.csprojAssemblyReference.cache
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tictactoe/obj/Debug/net5.0/tictactoe.GeneratedMSBuildEditorConfig.editorconfig
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tictactoe/obj/Debug/net5.0/tictactoe.AssemblyInfoInputs.cache
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tictactoe/obj/Debug/net5.0/tictactoe.AssemblyInfo.cs
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tictactoe/obj/Debug/net5.0/tictactoe.csproj.CoreCompileInputs.cache
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tictactoe/obj/Debug/net5.0/tictactoe.dll
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tictactoe/obj/Debug/net5.0/ref/tictactoe.dll
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tictactoe/obj/Debug/net5.0/tictactoe.pdb
+/run/media/csnewcs/backup/programming/git/MathWithBadDrawingExp/tictactoe/obj/Debug/net5.0/tictactoe.genruntimeconfig.cache
